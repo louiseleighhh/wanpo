@@ -2,7 +2,7 @@ class DogsittingsController < ApplicationController
   before_action :set_dogsitting, only: [:show]
 
   def index
-    @dogsitting = Dogsitting.all
+    @dogsittings = Dogsitting.all
   end
 
   def show
@@ -13,7 +13,7 @@ class DogsittingsController < ApplicationController
   end
 
   def create
-    @dogsitting - Dogsitting.new(dogsitting_params)
+    @dogsitting = Dogsitting.new(dogsitting_params)
     if @dogsitting.save
       redirect_to dogsitting_path(@dogsitting)
     else
