@@ -11,6 +11,8 @@ puts 'Destroying users...'
 User.destroy_all
 puts 'Destroying pets...'
 Pet.destroy_all
+puts 'Destroying dogsittings...'
+Dogsitting.destroy_all
 puts 'Clean database!'
 
 puts 'Creating users...'
@@ -27,15 +29,26 @@ puts 'Creating users...'
   random = rand(1..2)
   if random == 1
     puts 'Creating pets...'
-    pet = Pet.new(
+    pet = Pet.create(
       name: Faker::Creature::Dog.name,
       age: rand(1..18),
       breed: Faker::Creature::Dog.breed,
-      size: Faker::Creature::Dog.size
+      size: Faker::Creature::Dog.size,
+      user: user
     )
-    pet.user = user
-    pet.save
     puts "Created pet #{pet.id}"
+  end
+
+  random = rand(1..2)
+  if random == 1
+    puts 'Creating dogsittings...'
+    dogsitting = Dogsitting.create(
+      user: user,
+      location: user.location,
+      availability: ["Weekdays", "Weekends", "Mornings", "AFternoons", "Evenings"].sample,
+      rate: rand(500..5000)
+    )
+    puts "Created dogsitting #{dogsitting.id}"
   end
 end
 
