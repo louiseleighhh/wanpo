@@ -13,9 +13,8 @@ class DogsittingsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
     @dogsitting = Dogsitting.new(dogsitting_params)
-    @dogsitting.user = @user
+    @dogsitting.user = current_user
     if @dogsitting.save
       redirect_to dogsitting_path(@dogsitting)
     else
