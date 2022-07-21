@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [ :index, :update, :destroy ]
 
+  resources :pets, only: [ :create, :new ]
+
+  get "/profile", to: "pages#profile"
+
   namespace :walker do
     resources :bookings, only: :index
   end

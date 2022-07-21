@@ -1,0 +1,12 @@
+<h1>Hola this is profile page</h1>
+<% if user_signed_in? %>
+	<%= current_user.email %> <!-- current_user holds user information-->
+  <%= current_user.first_name %>
+  <%= current_user.last_name %>
+  <%= current_user.location %>
+  <% current_user.pets.each do |pet|%>
+  <%= pet.name %>
+  <% end %>
+<% end %>
+
+<%= link_to "Add Pet", new_pet_path, class: "nav-link" %>
