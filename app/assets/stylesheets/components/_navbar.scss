@@ -10,3 +10,32 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.nav-link {
+  padding: 1.5rem 1rem;
+}
+
+.navbar-brand {
+  font-style: Helvetica;
+  padding: 5px;
+  font-size: 38px;
+  font-weight: bold;
+  .black-text{
+    color: black;
+  }
+  .orange-text{
+    margin-left: -9px;
+    color: rgb(231, 139, 0);
+  }
+}
+
+.navbar-brand:hover {
+  .black-text{
+    color: rgb(231, 139, 0);
+    transition: .3s;
+  }
+  .orange-text{
+    color: rgb(231, 139, 0);
+    transition: .3s;
+  }
+  transition: .3s;
+}
