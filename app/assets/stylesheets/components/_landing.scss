@@ -19,6 +19,12 @@
   }
 }
 
+@media (min-width: 1920px) {
+  .wrapper {
+    height: 80.3vh;
+  }
+}
+
 
 .upper-left {
   grid-area: 1 / 1 / 2 / 2;
