@@ -1,0 +1,20 @@
+.button-main {
+  display: inline-block;
+	color: #212529;
+	text-align: center;
+	border: 1px solid transparent;
+	padding: 8px 32px;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: 40px;
+	color: #fff;
+	background-color: rgb(231, 139, 0);
+  text-decoration: none;
+  font-family: Helvetica;
+}
+
+.button-main:hover{
+  background-color: rgb(211, 110, 9);
+  transition: .3s;
+  color: #fff;
+}
