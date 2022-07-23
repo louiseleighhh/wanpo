@@ -13,6 +13,8 @@ puts 'Destroying pets...'
 Pet.destroy_all
 puts 'Destroying dogsittings...'
 Dogsitting.destroy_all
+puts 'Destroying bookings...'
+Dogsitting.destroy_all
 puts 'Clean database!'
 
 puts 'Creating users...'
@@ -49,6 +51,19 @@ puts 'Creating users...'
       rate: rand(500..5000)
     )
     puts "Created dogsitting #{dogsitting.id}"
+  end
+
+  random = rand(1..2)
+  if random == 1
+    puts 'Creating bookings...'
+    booking = Booking.create(
+      user: user,
+      dogsitting: dogsitting,
+      starts_at: [1300, 1400, 1500, 1600],
+      ends_at: [1700, 1800, 1900, 2000],
+      status: 0
+    )
+    puts "Created booksitting #{booking.id}"
   end
 end
 
