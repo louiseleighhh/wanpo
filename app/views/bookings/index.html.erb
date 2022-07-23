@@ -1,0 +1,24 @@
+<h1>Your bookings</h1>
+
+<% @bookings.each do |booking| %>
+<div class="container-small-profile">
+  <div class="card-small-profile">
+    <div class="gradient">
+    </div>
+    <div class="small-profile-img">
+      <img src="https://ca.slack-edge.com/T02NE0241-U038STG9291-d68736458302-512" alt="user">
+    </div>
+    <div class="content-small-profile">
+      <div class="top">
+      <h1><%= booking.dogsitting.user.first_name %> <%= booking.dogsitting.user.last_name %></h1>
+      <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
+      <h2>¥<%= booking.dogsitting.rate %> p/h</h2>
+      <h2><%= booking.status %></h2>
+      </div>
+      <div class="bottom display">
+      <h1><%= link_to "Update", class: "nav-link", class: "button-main" %></h1>
+      <h1><%= link_to "Cancel", class: "nav-link", class: "button-main" %></h1>
+      </div>
+    </div>
+  </div>
+<% end %>
