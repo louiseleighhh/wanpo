@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @dogsitting = Dogsitting.find(params[:dogsitting_id])
   end
 
   def create
@@ -15,6 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @dogsitting = Dogsitting.find(params[:dogsitting_id])
     @booking.dogsitting = @dogsitting
+    @booking.status = 0
     if @booking.save
       redirect_to bookings_path
     else
