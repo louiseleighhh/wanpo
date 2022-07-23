@@ -5,8 +5,14 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+  def new
+    @booking = Booking.new
+  end
+
   def create
     @booking = Booking.new(booking_params)
+    @user = current_user
+    @booking.user = @user
     @dogsitting = Dogsitting.find(params[:dogsitting_id])
     @booking.dogsitting = @dogsitting
     if @booking.save
