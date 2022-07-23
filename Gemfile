@@ -68,3 +68,6 @@ gem 'devise'
 
 # Faker
 gem 'faker'
+
+# Cloudinary
+gem 'cloudinary', '~> 1.16.0'
