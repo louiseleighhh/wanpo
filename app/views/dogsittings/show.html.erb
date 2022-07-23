@@ -21,7 +21,7 @@
         <div class="bottom">
           <h4>Availability:</h4>
           <h5><%= @dogsitting.availability %></h5>
-          <%= link_to "Book Now!", class:"a" %>
+          <%= link_to "Book Now!", new_dogsitting_booking_path(@dogsitting), class: "nav-link", class: "button-main"%>
         </div>
       </div>
     </div>
