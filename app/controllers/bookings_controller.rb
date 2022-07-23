@@ -15,7 +15,6 @@ class BookingsController < ApplicationController
     @booking.user = @user
     @dogsitting = Dogsitting.find(params[:dogsitting_id])
     @booking.dogsitting = @dogsitting
-    raise
     if @booking.save
       redirect_to bookings_path
     else
