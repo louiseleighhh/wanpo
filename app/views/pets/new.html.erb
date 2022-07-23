@@ -13,7 +13,8 @@
       <%= f.input :breed %>
     </div>
     <div class="row">
-      <%= f.input :size %>
+      <%= f.input :size,
+      collection: ["extra-small", "small", "medium", "large", "extra-large"] %>
     </div>
     <div class="row">
       <%= f.input :comments %>

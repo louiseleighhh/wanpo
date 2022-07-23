@@ -5,7 +5,6 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   height: 80vh;
-  margin: auto;
 }
 
 @media (min-width: 1024px) {
@@ -28,33 +27,19 @@
   margin-top: 100px;
   grid-area: 1 / 2 / 2 / 3;
   text-align: left;
+  margin-left: 150px;
   h1 {
     font-family: Helvetica;
     font-weight: bold;
     font-size: 32px;
-    margin-left: 150px;
+  }
+
+  a {
+    margin-left: 40px;
   }
 
   span {
     color: rgb(231, 139, 0);
-  }
-
-  a {
-    margin-left: 24px;
-    position: relative;
-    display: inline-block;
-    padding: 10px 40px;
-    background: rgb(231, 139, 0);
-    color: #fff;
-    border-radius: 40px;
-    text-decoration: none;
-    margin-top: 20px;
-    font-size: 16px;
-  }
-
-  a:hover {
-    background: rgb(211, 110, 9);
-    transition: .3s;
   }
 }
 
@@ -71,24 +56,6 @@
     font-weight: bold;
     font-size: 32px;
     color: white;
-  }
-
-  a {
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    padding: 10px 40px;
-    background: rgb(231, 139, 0);
-    color: #fff;
-    border-radius: 40px;
-    text-decoration: none;
-    margin-top: 20px;
-    font-size: 16px;
-  }
-
-  a:hover {
-    background: rgb(211, 110, 9);
-    transition: .3s;
   }
 }
 
