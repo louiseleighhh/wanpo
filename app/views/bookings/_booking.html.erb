@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="form">
+    <%= simple_form_for [@dogsittings, @booking] do |f| %>
+      <%= f.datetime :starts_at %>
+      <%= f.datetime :ends_at %>
+      <%= f.submit class:"a" %>
+    <%= end %>
+  </div>
+</div>
