@@ -1,5 +1,7 @@
+<div class="container">
 <h1>Your bookings</h1>
-
+<%= link_to "Back to Profile", profile_path, class: "nav-link", class: "button-main" %>
+</div>
 <% @bookings.each do |booking| %>
 <div class="container-small-profile">
   <div class="card-small-profile">
@@ -15,10 +17,11 @@
       <h2>¥<%= booking.dogsitting.rate %> p/h</h2>
       <h2><%= booking.status %></h2>
       </div>
-      <div class="bottom display">
-      <h1><%= link_to "Update", class: "nav-link", class: "button-main" %></h1>
-      <h1><%= link_to "Cancel", class: "nav-link", class: "button-main" %></h1>
+      <div class="bottom">
+      <%= link_to "Update", class: "nav-link", class: "a" %>
+      <%= link_to "Cancel", class: "nav-link", class: "a" %>
       </div>
     </div>
+  </div>
   </div>
 <% end %>
