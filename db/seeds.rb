@@ -59,8 +59,8 @@ puts 'Creating users...'
     booking = Booking.create(
       user: user,
       dogsitting: dogsitting,
-      starts_at: [1300, 1400, 1500, 1600],
-      ends_at: [1700, 1800, 1900, 2000],
+      starts_at: DateTime.now,
+      ends_at: DateTime.now + 1.hour,
       status: 0
     )
     puts "Created booksitting #{booking.id}"
