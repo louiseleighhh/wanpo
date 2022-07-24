@@ -11,6 +11,7 @@
         <h1><%=dogsitting.user.first_name%> <%=dogsitting.user.last_name%></h1>
         <h2><%=dogsitting.location %></h2>
         <h2>¥<%=dogsitting.rate %>/hour</h2>
+        <h2>Available on the <%=dogsitting.availability%></h2>
       </div>
       <div class="bottom">
         <%= link_to "Show more information", dogsitting_path(dogsitting), class: "nav-link", class: "button-main" %>
