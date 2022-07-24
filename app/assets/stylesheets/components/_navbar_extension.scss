@@ -4,11 +4,22 @@
   color: rgb(226, 226, 226);
   font-size: 18px;
   background-color: rgb(41, 41, 41);
-  margin-top: -15px;
   h4 {
     color: rgb(226, 226, 226);
     font-family: Helvetica;
     font-weight: bold;
     margin-bottom: 0rem;
+  }
+  .a:hover {
+    color: rgb(244, 186, 112);
+    transition: 0.3s;
+  }
+  .b:hover {
+    color: rgb(244, 186, 112);
+    transition: 0.3s;
+  }
+  .c:hover {
+    color: rgb(244, 186, 112);
+    transition: 0.3s;
   }
 }
