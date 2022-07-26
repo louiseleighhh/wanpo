@@ -11,7 +11,11 @@
       </div>
     </div>
     <div class="profile-img-small">
-      <img src="https://ca.slack-edge.com/T02NE0241-U038STG9291-d68736458302-512" alt="user">
+      <% if current_user.photo.attached? %>
+        <img src="<%= cl_image_path current_user.photo.key %>" alt="user">
+      <% else %>
+        <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+      <% end %>
     </div>
     <div class="content-profile-small">
       <div class="top">
