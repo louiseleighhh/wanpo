@@ -17,6 +17,16 @@ puts 'Destroying bookings...'
 Dogsitting.destroy_all
 puts 'Clean database!'
 
+puts 'Creating test user...'
+user = User.create(
+  email: "me@me.com",
+  password: 1234567,
+  first_name: "No",
+  last_name: "Body",
+  location: "Tokyo"
+)
+puts 'Test user created...'
+
 puts 'Creating users...'
 25.times do
   user = User.create(
@@ -24,7 +34,7 @@ puts 'Creating users...'
     password: '1234567',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    location: Faker::Address.country
+    location: ["Tokyo", "Osaka", "Kyoto", "Chiba", "Ibaraki", "Yokohama", "Nagoya", "Shizuoka"].sample
   )
   puts "Created user #{user.id}"
 
@@ -48,7 +58,7 @@ puts 'Creating users...'
       user: user,
       location: user.location,
       availability: ["Weekdays", "Weekends", "Mornings", "Afternoons", "Evenings"].sample,
-      rate: rand(500..5000)
+      rate: rand(1500..5000)
     )
     puts "Created dogsitting #{dogsitting.id}"
   end
