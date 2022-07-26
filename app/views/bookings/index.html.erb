@@ -15,11 +15,14 @@
       <h1><%= booking.dogsitting.user.first_name %> <%= booking.dogsitting.user.last_name %></h1>
       <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
       <h2>¥<%= booking.dogsitting.rate %> p/h</h2>
-      <h2><%= booking.status %></h2>
       </div>
       <div class="bottom">
-      <%= link_to "Update", class: "nav-link", class: "a" %>
-      <%= link_to "Cancel", class: "nav-link", class: "a" %>
+      <% if booking.pending?%>
+        <%= link_to "Update", edit_booking_path(booking), class: "nav-link", class: "button-main" %>
+        <%= link_to "Cancel", booking_path(booking), class: "nav-link", class: "button-secondary", method: :delete %>
+      <% else %>
+        <div class="button-secondary"><%=booking.status%></div>
+      <% end %>
       </div>
     </div>
   </div>
