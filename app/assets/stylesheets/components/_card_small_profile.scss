@@ -23,13 +23,15 @@
   transition: 0.5s;
   .content-small-profile{
     position: absolute;
-    bottom: 10px;
     padding: 20px;
     left: 148px;
-    right: 0;
-    bottom: 0;
     margin: auto;
     font-family: helvetica;
+    place-items: top;
+
+    top: 4%;
+    width: 71%;
+    text-align: top;
 
     h1 {
       font-family: helvetica;

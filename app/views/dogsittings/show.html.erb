@@ -1,14 +1,12 @@
-<head>
-</head>
-<body>
-  <%= link_to "Back To List", dogsittings_path, class:"a" %>
+
+  <h1><%= link_to "Back To List", dogsittings_path, class:"button-secondary" %></h1>
   <div class="container-profile">
     <div class="card-profile">
       <div class="gradient">
         <div class="price">
           <h1><%= @dogsitting.user.first_name%> <%=  @dogsitting.user.last_name %></h1>
           <h1><%= @dogsitting.location %></h1>
-          <h2>¥<%= @dogsitting.rate %> p/h</h2>
+          <h2>¥<%= @dogsitting.rate %>/hour</h2>
         </div>
       </div>
       <div class="profile-img">
@@ -26,4 +24,3 @@
       </div>
     </div>
 </div>
-</body>

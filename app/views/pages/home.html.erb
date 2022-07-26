@@ -1,6 +1,10 @@
 <footer class="header-extension">
       <div class="outer-header-extension">
-        <h4>Supporting your dog’s health through <span clas="a" >exercise</span>, <span class="b">socialization</span> and <span class="c">lots of love!</span></h4>
+      <% if notice.present? %>
+        <h4 class="notice"><%= notice %></h4>
+      <% else %>
+        <h4>Supporting your dog’s health through <span class="a" >exercise</span>, <span class="b">socialization</span> and <span class="c">lots of love!</span></h4>
+      <% end %>
       </div>
 </footer>
 
@@ -12,11 +16,13 @@
     <div class="center">
       <h1>No time to walk your dog?</h1>
       <h1>We’re the Wan<span>Po</span> you!</h1>
-      <%= link_to "Click here to book your dog walker!", dogsittings_path, class: "nav-link", class: "button-main" %>
+      <p><%= link_to "Click here to book your dog walker!", dogsittings_path, class: "nav-link", class: "button-main" %></p>
     </div>
   </div>
   <div class="whole-bottom">
-    <h1>Want to take a dog for a fun adventure?</h1>
-    <%= link_to "Offer your dog walking services", "#", class: "nav-link", class: "button-main" %>
+    <div class="center">
+      <h1>Want to take a dog for a fun adventure?</h1>
+      <p><%= link_to "Offer your dog walking services", "#", class: "nav-link", class: "button-main" %></p>
+    </div>
   </div>
 </div>
