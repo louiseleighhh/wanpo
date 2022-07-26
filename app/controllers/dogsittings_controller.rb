@@ -3,6 +3,12 @@ class DogsittingsController < ApplicationController
 
   def index
     @dogsittings = Dogsitting.all
+    @markers = @dogsittings.geocoded.map do |dogsitting|
+      {
+        lat: dogsitting.latitude,
+        lng: dogsitting.longitude
+      }
+    end
   end
 
   def show

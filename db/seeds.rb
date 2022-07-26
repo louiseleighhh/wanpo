@@ -57,6 +57,8 @@ puts 'Creating users...'
     dogsitting = Dogsitting.create(
       user: user,
       location: user.location,
+      latitude: user.latitude,
+      longitude: user.longitude,
       availability: ["Weekdays", "Weekends", "Mornings", "Afternoons", "Evenings"].sample,
       rate: rand(1500..5000)
     )
@@ -73,7 +75,7 @@ puts 'Creating users...'
       ends_at: DateTime.now + 1.hour,
       status: 0
     )
-    puts "Created booksitting #{booking.id}"
+    puts "Created booking #{booking.id}"
   end
 end
 
