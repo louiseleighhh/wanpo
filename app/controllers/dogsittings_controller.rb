@@ -2,7 +2,11 @@ class DogsittingsController < ApplicationController
   before_action :set_dogsitting, only: [:show]
 
   def index
-    @dogsittings = Dogsitting.all
+    if params[:query].present?
+      @dogsittings = Dogsitting.global_search(params[:query])
+    else
+      @dogsittings = Dogsitting.all
+    end
     @markers = @dogsittings.geocoded.map do |dogsitting|
       {
         lat: dogsitting.latitude,
