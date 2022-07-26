@@ -1,15 +1,17 @@
 .container-small-profile {
   position: relative;
-  width: 990px;
   padding: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: auto;
-  display: grid;
   grid-template-columns: 1fr;
   grid-gap: 64px;
+}
+
+.cards-small-profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+  padding-left: 100px;
 }
 
 .container-small-profile .card-small-profile {
@@ -111,4 +113,10 @@
     height: 90%;
     border-radius: inherit;
   }
+}
+
+.map {
+  margin-top: 20px;;
+  position: sticky;
+  top:0;
 }
