@@ -8,8 +8,8 @@
     <div class="gradient">
     </div>
     <div class="small-profile-img">
-      <% if booking.user.photo.attached? %>
-        <img src="<%= cl_image_path booking.user.photo.key %>" alt="user">
+      <% if booking.dogsitting.user.photo.attached? %>
+        <img src="<%= cl_image_path booking.dogsitting.user.photo.key %>" alt="user">
       <% else %>
         <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
       <% end %>
