@@ -1,29 +1,44 @@
-<h1><%= link_to "Add Pet", new_pet_path, class: "nav-link", class: "button-main" %></h1>
-<h1><%= link_to "Bookings", bookings_path, class: "nav-link", class: "button-main" %></h1>
-
-<div class="container-profile-small">
-  <div class="card-profile-small">
-    <div class="gradient-small">
-      <div class="price">
-        <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
-        <h2><%= current_user.email %></h2>
-        <h2><%= current_user.location %></h2>
-      </div>
+  <div class="container-facebook-profile">
+  <div class="card-facebook-profile">
+    <div class="gradient">
     </div>
-    <div class="profile-img-small">
+    <div class="facebook-profile-img">
       <% if current_user.photo.attached? %>
         <img src="<%= cl_image_path current_user.photo.key %>" alt="user">
       <% else %>
         <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
       <% end %>
     </div>
-    <div class="content-profile-small">
+    <div class="content-facebook-profile">
       <div class="top">
-        <h2>About Me:</h2>
-        <p><%= current_user.about_me %> </p>
+        <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
+        <h1><%= current_user.email %></h1>
+      </div>
+      <div class="bottom">
+        <%= link_to "Add Pet", new_pet_path, class: "nav-link", class: "button-main" %>
+        <%= link_to "Bookings", bookings_path, class: "nav-link", class: "button-main" %>
       </div>
     </div>
   </div>
+</div>
+
+  <div class="mytabs">
+    <input type="radio" id="tabfree" name="mytabs" checked="checked">
+    <label for="tabfree">About <i class="fa-solid fa-book-open"></i></label>
+    <div class="tab">
+      <h2>About:</h2>
+        <h3><i class="fa-solid fa-file-signature"> </i>First Name: <%= current_user.first_name%> &nbsp &nbsp &nbsp Last Name: <%= current_user.last_name%></h3>
+        <h3><i class="fa-solid fa-envelope"></i> Email Address: <%= current_user.email %> </h3>
+        <h3><i class="fa-solid fa-map-pin"></i> Lives in <%= current_user.location %> </i></h3>
+        <h3><i class="fa-solid fa-book"></i> About you: </h3>
+        <p><%= current_user.about_me %> </p>
+    </div>
+
+    <input type="radio" id="tabsilver" name="mytabs">
+    <label for="tabsilver">Pets <i class="fa-solid fa-paw"></i></label>
+    <div class="tab">
+      <h2>Pets:</h2>
+      <div class="container-profile-small">
   <% current_user.pets.each do |pet|%>
   <div class="card-profile-small">
     <div class="gradient-small">
@@ -60,8 +75,11 @@
         <p>Comments:</p>
       </div>
         <p><%= pet.comments %></p>
-        <%= link_to "Cancel", pet_path(pet), class: "nav-link", class: "button-secondary", method: :delete %>
+        <%= link_to "Remove", pet_path(pet), class: "nav-link", class: "button-secondary", method: :delete %>
     </div>
   </div>
   <% end %>
 </div>
+
+    </div>
+  </div>

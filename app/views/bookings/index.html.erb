@@ -17,8 +17,9 @@
     <div class="content-small-profile">
       <div class="top">
       <h1><%= booking.dogsitting.user.first_name %> <%= booking.dogsitting.user.last_name %></h1>
+      <h1><%= booking.dogsitting.user.location %></h1>
       <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
-      <h2>¥<%= booking.dogsitting.rate %> p/h</h2>
+      <h2>¥<%= booking.dogsitting.rate %>/hour</h2>
       </div>
       <div class="bottom">
       <% if booking.pending?%>
