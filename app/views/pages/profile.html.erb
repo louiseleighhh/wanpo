@@ -33,7 +33,11 @@
       </div>
     </div>
     <div class="profile-img-small">
-      <img src="https://images.unsplash.com/photo-1598875706250-21faaf804361?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80" alt="user">
+      <% if pet.photo.attached? %>
+        <img src="<%= cl_image_path pet.photo.key %>" alt="pet">
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1598875706250-21faaf804361?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80" alt="user">
+      <% end %>
     </div>
     <div class="content-profile-small">
       <div class="container-pet-profile">
