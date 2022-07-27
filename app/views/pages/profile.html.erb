@@ -60,6 +60,7 @@
         <p>Comments:</p>
       </div>
         <p><%= pet.comments %></p>
+        <%= link_to "Cancel", pet_path(pet), class: "nav-link", class: "button-secondary", method: :delete %>
     </div>
   </div>
   <% end %>
