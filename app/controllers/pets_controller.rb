@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-
+  before_action :set_pet, only: [:edit, :update, :destroy]
   def new
     @pet = Pet.new
     # @pet = Pet.new(params[:pet_id])
@@ -15,8 +15,14 @@ class PetsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    @pet.update(pet_params)
+    redirect_to profile_path
+  end
+
   def destroy
-    @pet = Pet.find(params[:id])
     @pet.destroy
     redirect_to profile_path
   end
@@ -27,4 +33,7 @@ class PetsController < ApplicationController
     params.require(:pet).permit(:name, :age, :breed, :size, :comments, :photo)
   end
 
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
 end

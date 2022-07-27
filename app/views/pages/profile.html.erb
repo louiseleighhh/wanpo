@@ -11,13 +11,27 @@
     </div>
     <div class="content-facebook-profile">
       <div class="top">
-        <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
+        <div class="container-pet-profile">
+          <div class="left-right">
+            <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
+          </div>
+          <div class="left-right">
+            <div class="profile-buttons">
+              <%= link_to "Add Pet", new_pet_path, class: "nav-link", class: "button-main" %>
+              <%= link_to edit_user_registration_path, class: "nav-link", class: "button-main" do %>
+              <i class="fa-solid fa-pen"></i> Edit Profile
+              <% end %>
+            </div>
+          </div>
+        </div>
         <h1><%= current_user.email %></h1>
+        <% if current_user.pets.count == 1 %>
+          <h2> <i class="fa-solid fa-dog"></i> Has <%= current_user.pets.count %> pet</h2>
+        <% else %>
+          <h2> <i class="fa-solid fa-dog"></i> Has <%= current_user.pets.count %> pets</h2>
+        <% end %>
       </div>
-      <div class="bottom">
-        <%= link_to "Add Pet", new_pet_path, class: "nav-link", class: "button-main" %>
-        <%= link_to "Bookings", bookings_path, class: "nav-link", class: "button-main" %>
-      </div>
+
     </div>
   </div>
 </div>
@@ -44,7 +58,7 @@
     <div class="gradient-small">
       <div class="price">
           <h1><%= pet.name %></h1>
-          <h2><%= pet.breed %></h2>
+          <h2><i class="fa-solid fa-dog"> </i> <%= pet.breed %></h2>
       </div>
     </div>
     <div class="profile-img-small">
@@ -57,25 +71,43 @@
     <div class="content-profile-small">
       <div class="container-pet-profile">
         <div class="left-right">
-          Age:
+          <p><i class="fa-solid fa-cake-candles"></i>  Age:</p>
         </div>
         <div class="left-right">
-          <p><%= pet.age %></p>
+        <% if pet.age == 1 %>
+          <p><%= pet.age %> year old</p>
+        <% else %>
+          <p><%= pet.age %> years old</p>
+        <% end %>
         </div>
       </div>
       <div class="container-pet-profile">
         <div class="left-right">
-          <p>Size:</p>
+          <p><i class="fa-solid fa-weight-scale"></i> Size:</p>
         </div>
         <div class="left-right">
           <p><%= pet.size %></p>
         </div>
       </div>
-      <div class="container-pet-profile">
-        <p>Comments:</p>
+       <div class="container-pet-profile">
+        <div class="left-right">
+          <p><i class="fa-solid fa-scroll"></i> Comment:</p>
+        </div>
+        <div class="left-right">
+          <p>&nbsp</p>
+        </div>
       </div>
+      <div class="container-pet-profile-comment">
         <p><%= pet.comments %></p>
-        <%= link_to "Remove", pet_path(pet), class: "nav-link", class: "button-secondary", method: :delete %>
+      </div>
+      <div class="container-pet-profile">
+        <div class="left-right">
+          <%= link_to "Update", edit_pet_path(pet), class: "nav-link", class: "button-main"%>
+        </div>
+        <div class="left-right">
+          <%= link_to "Remove", pet_path(pet), class: "nav-link", class: "button-secondary", method: :delete %>
+        </div>
+      </div>
     </div>
   </div>
   <% end %>

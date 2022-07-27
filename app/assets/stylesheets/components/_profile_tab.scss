@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   padding-left: 7em;
+  padding-top: 16px;
 }
 
 .cards-facebook-profile {
@@ -32,7 +33,7 @@
     place-items: top;
 
     top: 4%;
-    width: 71%;
+    width: 84%;
     text-align: top;
 
     h1 {
@@ -98,7 +99,7 @@
 .facebook-profile-img {
   width: 15em;
   height: 15em;
-  margin: -13.35em auto 0 0em;
+  margin: -13.8em auto 0 0em;
   border-radius: 50%;
   background-image: linear-gradient(0deg, rgb(244, 186, 112) 0%, rgb(231, 139, 0) 28%);
   display: flex;
@@ -134,10 +135,28 @@
   order: 1;
   display: none;
   box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+
+  i {
+    color:rgb(211, 110, 9)
+  }
+
+  p {
+    font-family: Helvetica;
+  }
+
+  h1 {
+    font-family: Helvetica;
+  }
+
+  h2 {
+    font-family: Helvetica;
+  }
+
+  h3 {
+    font-family: Helvetica;
+  }
 }
-.mytabs .tab h2 {
-  font-size: 3em;
-}
+
 
 .mytabs input[type='radio']:checked + label + .tab {
   display: block;

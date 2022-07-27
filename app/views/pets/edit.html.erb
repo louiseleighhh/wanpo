@@ -1,0 +1,31 @@
+
+ <div class = "container">
+  <div class="card mt-3 p-5">
+  <h1>Edit a pet</h1>
+  <%= simple_form_for @pet do |f| %>
+    <div class="row">
+      <%= f.input :name %>
+    </div>
+    <div class="row">
+      <%= f.input :age %>
+    </div>
+    <div class="row">
+      <%= f.input :breed %>
+    </div>
+    <div class="row">
+      <%= f.input :size,
+      collection: ["extra-small", "small", "medium", "large", "extra-large"] %>
+    </div>
+    <div class="row">
+      <%= f.input :comments %>
+    </div>
+     <div class="row">
+      <%= f.input :photo, as: :file %>
+    </div>
+    <div class="row">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  <%= link_to "Go Back", profile_path, class: "link-primary mt-3" %>
+  </div>
+</div>
