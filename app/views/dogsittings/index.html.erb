@@ -1,9 +1,11 @@
 
 <%= form_tag dogsittings_path, class: "dogsittings-search-form", method: :get do %>
+<%="Input your prefered location"%>
+<div>
   <%= text_field_tag :query,
     params[:query],
     class: "form-inline col-sm-6",
-    placeholder: "Find a dogsitter"
+    placeholder: "Tokyo"
   %>
   <%= submit_tag "Search", class: "button-main" %>
 <% end %>
