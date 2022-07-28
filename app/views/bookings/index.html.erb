@@ -8,13 +8,18 @@
     <div class="gradient">
     </div>
     <div class="small-profile-img">
-      <img src="https://ca.slack-edge.com/T02NE0241-U038STG9291-d68736458302-512" alt="user">
+      <% if booking.dogsitting.user.photo.attached? %>
+        <img src="<%= cl_image_path booking.dogsitting.user.photo.key %>" alt="user">
+      <% else %>
+        <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+      <% end %>
     </div>
     <div class="content-small-profile">
       <div class="top">
       <h1><%= booking.dogsitting.user.first_name %> <%= booking.dogsitting.user.last_name %></h1>
+      <h1><%= booking.dogsitting.user.location %></h1>
       <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
-      <h2>¥<%= booking.dogsitting.rate %> p/h</h2>
+      <h2>¥<%= booking.dogsitting.rate %>/hour</h2>
       </div>
       <div class="bottom">
       <% if booking.pending?%>
