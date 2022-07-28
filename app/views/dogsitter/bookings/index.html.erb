@@ -1,0 +1,16 @@
+<h1>Here are your Dogsitting Requests</h1>
+<div class="container">
+<h1><%= current_user.id %></h1>
+
+<% @bookings.each do |booking| %>
+  <h2>Booking ID: <%= booking.id %></h2>
+  <h2><%= booking.dogsitter.id %>
+  <h2>Dogsitter ID: <%= booking.dogsitting_id %></h2>
+  <h2>Dogsitter's First Name: <%= booking.dogsitter.first_name %></h2>
+  <h2>From: <%= booking.starts_at %></h2>
+  <h2>Until: <%= booking.ends_at %></h2>
+  <h2><%= booking.user.id %></h2>
+  <h3>(Approve) ------- (Reject)</h3>
+<% end %>
+
+</div>

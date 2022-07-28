@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "/profile", to: "pages#profile"
 
-  namespace :walker do
+  namespace :dogsitter do
     resources :bookings, only: :index
   end
 end
