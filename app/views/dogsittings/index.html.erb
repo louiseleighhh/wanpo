@@ -1,11 +1,14 @@
 
+<div class="search-label">
+<h3><i class="fa-solid fa-paw"></i> Look for a dogsitter near you! <i class="fa-solid fa-paw"></i></h3>
+</div>
 <%= form_tag dogsittings_path, class: "dogsittings-search-form", method: :get do %>
 <%="Input your prefered location"%>
 <div>
   <%= text_field_tag :query,
     params[:query],
     class: "form-inline col-sm-6",
-    placeholder: "Tokyo"
+    placeholder: "Search location eg. Meguro, Tokyo"
   %>
   <%= submit_tag "Search", class: "button-main" %>
 <% end %>
