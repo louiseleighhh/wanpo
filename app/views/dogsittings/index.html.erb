@@ -1,41 +1,47 @@
-<%= form_tag dogsittings_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-inline col-sm-6",
-        placeholder: "Find a dogsitter"
-      %>
-      <%= submit_tag "Search", class: "button-main" %>
-    <% end %>
-    
-<div class="container-small-profile">
-<div class="cards-small-profile">
-  <% @dogsittings.each do |dogsitting| %>
-  <div class="card-small-profile">
-    <div class="gradient">
+
+<%= form_tag dogsittings_path, class: "dogsittings-search-form", method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-inline col-sm-6",
+    placeholder: "Find a dogsitter"
+  %>
+  <%= submit_tag "Search", class: "button-main" %>
+<% end %>
+
+<% if @dogsittings.empty? %>
+  <h1 class = "text-center pt-3">We couldn't find what you were looking for</h1>
+<% else %>
+  <div class="container-small-profile">
+    <div class="cards-small-profile">
+      <% @dogsittings.each do |dogsitting| %>
+        <div class="card-small-profile">
+          <div class="gradient">
+          </div>
+          <div class="small-profile-img">
+            <% if dogsitting.user.photo.attached? %>
+              <img src="<%= cl_image_path dogsitting.user.photo.key %>" alt="user">
+            <% else %>
+              <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+            <% end %>
+          </div>
+          <div class="content-small-profile">
+            <div class="top">
+              <h1><%=dogsitting.user.first_name%> <%=dogsitting.user.last_name%></h1>
+              <h2><%=dogsitting.location %></h2>
+              <h2>¥<%=dogsitting.rate %>/hour</h2>
+              <h2>Available on the <%=dogsitting.availability%></h2>
+            </div>
+            <div class="bottom">
+              <%= link_to "Show more information", dogsitting_path(dogsitting), class: "nav-link", class: "button-main" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <div class="small-profile-img">
-     <% if dogsitting.user.photo.attached? %>
-      <img src="<%= cl_image_path dogsitting.user.photo.key %>" alt="user">
-    <% else %>
-      <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
-    <% end %>
+    <div class = "map" style="width: 100%; height: 600px;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <div class="content-small-profile">
-      <div class="top">
-        <h1><%=dogsitting.user.first_name%> <%=dogsitting.user.last_name%></h1>
-        <h2><%=dogsitting.location %></h2>
-        <h2>¥<%=dogsitting.rate %>/hour</h2>
-        <h2>Available on the <%=dogsitting.availability%></h2>
-      </div>
-      <div class="bottom">
-        <%= link_to "Show more information", dogsitting_path(dogsitting), class: "nav-link", class: "button-main" %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  </div>
-<div class = "map" style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+  <% end %>
