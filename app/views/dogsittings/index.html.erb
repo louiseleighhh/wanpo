@@ -3,6 +3,8 @@
 <h3><i class="fa-solid fa-paw"></i> Look for a dogsitter near you! <i class="fa-solid fa-paw"></i></h3>
 </div>
 <%= form_tag dogsittings_path, class: "dogsittings-search-form", method: :get do %>
+<%="Input your prefered location"%>
+<div>
   <%= text_field_tag :query,
     params[:query],
     class: "form-inline col-sm-6",
