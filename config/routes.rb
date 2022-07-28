@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [ :index, :update, :edit, :destroy ]
 
-  resources :pets, only: [ :create, :new ]
+  resources :pets, only: [ :create, :new, :update, :edit, :destroy ]
 
   get "/profile", to: "pages#profile"
 

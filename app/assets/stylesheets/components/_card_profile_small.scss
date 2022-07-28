@@ -1,15 +1,14 @@
 .container-profile-small {
   position: relative;
-  width: 990px;
-  padding: 10px;
+  width: 100%;
+  padding: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin: auto;
-  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 64px;
+  grid-gap: 112px 27px;
+  margin-top: 24px;
 }
 
 // Smallest device
@@ -61,10 +60,18 @@
   justify-content: space-between;
 }
 
+.container-pet-profile-comment {
+  display: flex; // makes the text anchored to the center
+  justify-content: center; // makes the text anchored to the center
+  align-items: center; // makes the text anchored to the center
+  flex-direction: column; // makes the text anchored to the center
+  height: 8em;
+}
+
 .container-profile-small .card-profile-small {
   position: relative;
   width: 360px;
-  height: 380px;
+  height: 552px;
   background: #fff;
   margin: 0px;
   border-radius: 5px;
@@ -76,13 +83,13 @@
     font-family: helvetica;
     height: 10em;
     position: relative;
-    margin-top: 90px;
-    padding: 0 10px;
-    height: 14.2em;
-    display: flex;
-    justify-content: center; // makes the text anchored to the center
-    align-items: center; // makes the text anchored to the center
-    flex-direction: column; // makes the text anchored to the center
+    margin-top: 160px;
+    padding: 0 32px;
+    height: 20.2em;
+    // display: flex; // makes the text anchored to the center
+    //justify-content: center; // makes the text anchored to the center
+    //align-items: center; // makes the text anchored to the center
+    //flex-direction: column; // makes the text anchored to the center
 
     h1 {
       text-align: left;
@@ -110,19 +117,26 @@
   height: 100%;
   // background-image: linear-gradient(180deg, rgb(231, 139, 0) 0%, rgba(255,184,91,1) 28%);
   background-image: linear-gradient(180deg, rgb(244, 186, 112) 0%, rgb(231, 139, 0) 28%);
-  clip-path: circle(200px at center 0);
+  clip-path: circle(224px at center 0);
   text-align: center;
+
   h1 {
    color: #fff;
    font-size: 32px;
    font-weight: bold;
    font-family: helvetica;
   }
+
   h2 {
   color: #fff;
   font-size: 24px;
   margin-top: -8px;
   font-family: helvetica;
+  }
+
+
+  i {
+    color: #fff;
   }
 }
 
@@ -130,7 +144,7 @@
 .profile-img-small {
   width: 10em;
   height: 10em;
-  margin: -29em auto 0 11em;
+  margin: -40em auto 0 11em;
   border-radius: 50%;
   background-image: linear-gradient(0deg, rgb(244, 186, 112) 0%, rgb(231, 139, 0) 28%);
   display: flex;
@@ -143,4 +157,5 @@
     height: 90%;
     border-radius: inherit;
   }
+
 }

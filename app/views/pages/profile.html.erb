@@ -1,58 +1,117 @@
-<h1><%= link_to "Add Pet", new_pet_path, class: "nav-link", class: "button-main" %></h1>
-<h1><%= link_to "Bookings", bookings_path, class: "nav-link", class: "button-main" %></h1>
-
-<div class="container-profile-small">
-  <div class="card-profile-small">
-    <div class="gradient-small">
-      <div class="price">
-        <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
-        <h2><%= current_user.email %></h2>
-        <h2><%= current_user.location %></h2>
-      </div>
+  <div class="container-facebook-profile">
+  <div class="card-facebook-profile">
+    <div class="gradient">
     </div>
-    <div class="profile-img-small">
-      <img src="https://ca.slack-edge.com/T02NE0241-U038STG9291-d68736458302-512" alt="user">
+    <div class="facebook-profile-img">
+      <% if current_user.photo.attached? %>
+        <img src="<%= cl_image_path current_user.photo.key %>" alt="user">
+      <% else %>
+        <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
+      <% end %>
     </div>
-    <div class="content-profile-small">
+    <div class="content-facebook-profile">
       <div class="top">
-        <h2>About Me:</h2>
-        <p><%= current_user.about_me %> </p>
+        <div class="container-pet-profile">
+          <div class="left-right">
+            <h1><%= current_user.first_name%> <%= current_user.last_name%></h1>
+          </div>
+          <div class="left-right">
+            <div class="profile-buttons">
+              <%= link_to "Add Pet", new_pet_path, class: "nav-link", class: "button-main" %>
+              <%= link_to edit_user_registration_path, class: "nav-link", class: "button-main" do %>
+              <i class="fa-solid fa-pen"></i> Edit Profile
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <h1><%= current_user.email %></h1>
+        <% if current_user.pets.count == 1 %>
+          <h2> <i class="fa-solid fa-dog"></i> Has <%= current_user.pets.count %> pet</h2>
+        <% else %>
+          <h2> <i class="fa-solid fa-dog"></i> Has <%= current_user.pets.count %> pets</h2>
+        <% end %>
       </div>
+
     </div>
   </div>
+</div>
+
+  <div class="mytabs">
+    <input type="radio" id="tabfree" name="mytabs" checked="checked">
+    <label for="tabfree">About <i class="fa-solid fa-book-open"></i></label>
+    <div class="tab">
+      <h2>About:</h2>
+        <h3><i class="fa-solid fa-file-signature"> </i>First Name: <%= current_user.first_name%> &nbsp &nbsp &nbsp Last Name: <%= current_user.last_name%></h3>
+        <h3><i class="fa-solid fa-envelope"></i> Email Address: <%= current_user.email %> </h3>
+        <h3><i class="fa-solid fa-map-pin"></i> Lives in <%= current_user.location %> </i></h3>
+        <h3><i class="fa-solid fa-book"></i> About you: </h3>
+        <p><%= current_user.about_me %> </p>
+    </div>
+
+    <input type="radio" id="tabsilver" name="mytabs">
+    <label for="tabsilver">Pets <i class="fa-solid fa-paw"></i></label>
+    <div class="tab">
+      <h2>Pets:</h2>
+      <div class="container-profile-small">
   <% current_user.pets.each do |pet|%>
   <div class="card-profile-small">
     <div class="gradient-small">
       <div class="price">
           <h1><%= pet.name %></h1>
-          <h2><%= pet.breed %></h2>
+          <h2><i class="fa-solid fa-dog"> </i> <%= pet.breed %></h2>
       </div>
     </div>
     <div class="profile-img-small">
-      <img src="https://images.unsplash.com/photo-1598875706250-21faaf804361?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80" alt="user">
+      <% if pet.photo.attached? %>
+        <img src="<%= cl_image_path pet.photo.key %>" alt="pet">
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1598875706250-21faaf804361?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8&w=1000&q=80" alt="user">
+      <% end %>
     </div>
     <div class="content-profile-small">
       <div class="container-pet-profile">
         <div class="left-right">
-          Age:
+          <p><i class="fa-solid fa-cake-candles"></i>  Age:</p>
         </div>
         <div class="left-right">
-          <p><%= pet.age %></p>
+        <% if pet.age == 1 %>
+          <p><%= pet.age %> year old</p>
+        <% else %>
+          <p><%= pet.age %> years old</p>
+        <% end %>
         </div>
       </div>
       <div class="container-pet-profile">
         <div class="left-right">
-          <p>Size:</p>
+          <p><i class="fa-solid fa-weight-scale"></i> Size:</p>
         </div>
         <div class="left-right">
           <p><%= pet.size %></p>
         </div>
       </div>
-      <div class="container-pet-profile">
-        <p>Comments:</p>
+       <div class="container-pet-profile">
+        <div class="left-right">
+          <p><i class="fa-solid fa-scroll"></i> Comment:</p>
+        </div>
+        <div class="left-right">
+          <p>&nbsp</p>
+        </div>
       </div>
+      <div class="container-pet-profile-comment">
         <p><%= pet.comments %></p>
+      </div>
+      <div class="container-pet-profile">
+        <div class="left-right">
+          <%= link_to "Update", edit_pet_path(pet), class: "nav-link", class: "button-main"%>
+        </div>
+        <div class="left-right">
+          <%= link_to "Remove", pet_path(pet), class: "nav-link", class: "button-secondary", method: :delete %>
+        </div>
+      </div>
     </div>
   </div>
   <% end %>
 </div>
+
+    </div>
+  </div>
