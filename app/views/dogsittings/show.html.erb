@@ -1,12 +1,13 @@
 
-  <h1><%= link_to "Back To List", dogsittings_path, class:"button-secondary" %></h1>
+<h1><%= link_to "Back To List", dogsittings_path, class:"button-secondary" %></h1>
+<div class="container-small-profile">
   <div class="container-profile">
     <div class="card-profile">
       <div class="gradient">
         <div class="price">
           <h1><%= @dogsitting.user.first_name%> <%=  @dogsitting.user.last_name %></h1>
-          <h1><%= @dogsitting.location %></h1>
-          <h2>¥<%= @dogsitting.rate %>/hour</h2>
+          <h2><%= @dogsitting.location %></h2>
+          <h3>¥<%= @dogsitting.rate %>/hour</h3>
         </div>
       </div>
       <div class="profile-img">
@@ -23,8 +24,25 @@
         <div class="bottom">
           <h4>Availability:</h4>
           <h5><%= @dogsitting.availability %></h5>
-          <%= link_to "Book Now!", new_dogsitting_booking_path(@dogsitting), class: "nav-link", class: "button-main"%>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class = "container">
+    <div class="card mt-5 p-5">
+      <h1>Add a Booking</h1>
+      <%= simple_form_for [@dogsitting, @booking] do |f| %>
+        <div class="row">
+          <%= f.input :starts_at, html5: true %>
+        </div>
+        <div class="row">
+          <%= f.input :ends_at, html5: true %>
+        </div>
+        <div class="text-center">
+          <%= f.submit class: 'button-main' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
