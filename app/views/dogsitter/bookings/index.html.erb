@@ -1,25 +1,26 @@
-<h1>Here are your Dogsitting Requests</h1>
 <div class="container">
-<h1><%= current_user.id %></h1>
-
-<% @bookings.each do |booking| %>
-  <h2>Booking ID: <%= booking.id %></h2>
-  <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
-  <h2>From: <%= booking.starts_at %> Until: <%= booking.ends_at %></h2>
-  <div class="booking-actions">
-    <% if booking.pending? %>
-      <%= simple_form_for booking do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-        <%= f.submit 'Accept', class: 'btn btn-info' %>
-      <% end %>
-      <%= simple_form_for booking do |f| %>
-        <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-        <%= f.submit 'Reject', class: 'btn btn-light' %>
-      <% end %>
-    <% else %>
-      <p class='booking-tag'><%= booking.status %></p>
+  <% if current_user.dogsittings.any? %>
+    <h1>Here are your Dogsitting Requests</h1>
+    <% @bookings.each do |booking| %>
+      <h2>Booking ID: <%= booking.id %></h2>
+      <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
+      <h2>From: <%= booking.starts_at %> Until: <%= booking.ends_at %></h2>
+      <div class="booking-actions">
+        <% if booking.pending? %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-light' %>
+          <% end %>
+        <% else %>
+          <p class='booking-tag'><%= booking.status %></p>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
-
+  <% else %>
+    <h1>You have no current requests</h1>
+  <% end %>
 </div>
