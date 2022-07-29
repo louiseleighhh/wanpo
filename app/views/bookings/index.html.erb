@@ -1,20 +1,22 @@
-<div class="container">
-<h1>Your bookings</h1>
-<%= link_to "Back to Profile", profile_path, class: "nav-link", class: "button-main" %>
+<div class="bookings-banner">
+  <div class="container">
+  <div class="search-label"><h1>Your Bookings</h1></div>
+  </div>
 </div>
+
+<div class="container-bookings">
 <% @bookings.each do |booking| %>
-<div class="container-small-profile">
-  <div class="card-small-profile">
+  <div class="card-bookings">
     <div class="gradient">
     </div>
-    <div class="small-profile-img">
+    <div class="bookings-img">
       <% if booking.dogsitting.user.photo.attached? %>
         <img src="<%= cl_image_path booking.dogsitting.user.photo.key %>" alt="user">
       <% else %>
         <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
       <% end %>
     </div>
-    <div class="content-small-profile">
+    <div class="content-bookings">
       <div class="top">
       <h1><%= booking.dogsitting.user.first_name %> <%= booking.dogsitting.user.last_name %></h1>
       <h1><%= booking.dogsitting.user.location %></h1>
@@ -31,5 +33,5 @@
       </div>
     </div>
   </div>
+  <% end %>
   </div>
-<% end %>
