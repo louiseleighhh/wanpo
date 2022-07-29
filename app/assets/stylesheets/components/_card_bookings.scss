@@ -1,16 +1,27 @@
 .container-bookings {
+  // position: relative;
+  // width: 990px;
+  // padding-left: 72px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: end;
+  // flex-wrap: wrap;
+  // margin: auto;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // grid-column-gap: 64px;
+  // grid-row-gap: 10px;
+
   position: relative;
-  width: 990px;
-  padding-left: 72px;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  flex-wrap: wrap;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 64px;
-  grid-row-gap: 10px;
+    width: 100%;
+    padding-left: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 48px 72px;
+    margin-top: 24px;
 }
 
 .cards-bookings {
@@ -121,4 +132,12 @@
     height: 90%;
     border-radius: inherit;
   }
+}
+
+.bookings-status {
+  margin: -11em auto 0 28em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
 }
