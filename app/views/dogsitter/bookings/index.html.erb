@@ -4,13 +4,22 @@
 
 <% @bookings.each do |booking| %>
   <h2>Booking ID: <%= booking.id %></h2>
-  <h2><%= booking.dogsitter.id %>
-  <h2>Dogsitter ID: <%= booking.dogsitting_id %></h2>
-  <h2>Dogsitter's First Name: <%= booking.dogsitter.first_name %></h2>
-  <h2>From: <%= booking.starts_at %></h2>
-  <h2>Until: <%= booking.ends_at %></h2>
-  <h2><%= booking.user.id %></h2>
-  <h3>(Approve) ------- (Reject)</h3>
+  <h2><%= booking.user.first_name %> <%= booking.user.last_name %></h2>
+  <h2>From: <%= booking.starts_at %> Until: <%= booking.ends_at %></h2>
+  <div class="booking-actions">
+    <% if booking.pending? %>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+        <%= f.submit 'Accept', class: 'btn btn-info' %>
+      <% end %>
+      <%= simple_form_for booking do |f| %>
+        <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+        <%= f.submit 'Reject', class: 'btn btn-light' %>
+      <% end %>
+    <% else %>
+      <p class='booking-tag'><%= booking.status %></p>
+    <% end %>
+  </div>
 <% end %>
 
 </div>

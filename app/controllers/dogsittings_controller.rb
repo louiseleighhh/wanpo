@@ -26,8 +26,9 @@ class DogsittingsController < ApplicationController
   def create
     @dogsitting = Dogsitting.new(dogsitting_params)
     @dogsitting.user = current_user
+    @dogsitting.location = current_user.location
     if @dogsitting.save
-      redirect_to dogsitting_path(@dogsitting)
+      redirect_to profile_path
     else
       render :new
     end
@@ -40,6 +41,6 @@ class DogsittingsController < ApplicationController
   end
 
   def dogsitting_params
-    params.require(:dogsitting).permit(:location)
+    params.require(:dogsitting).permit(:rate, :availability)
   end
 end

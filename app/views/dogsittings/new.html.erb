@@ -1,0 +1,17 @@
+<div class = "container">
+  <div class="card mt-3 p-5">
+  <h1>Dogsitter Information</h1>
+  <%= simple_form_for [@dogsitting] do |f| %>
+    <div class="row">
+      <%= f.input :rate, html5: true %>
+    </div>
+    <div class="row">
+      <%= f.input :availability, collection: ["Weekdays", "Weekends", "Mornings", "Afternoons", "Evenings"], html5: true %>
+    </div>
+    <div class="row">
+      <%= f.button :submit, "Submit Information", class: 'button-main' %>
+    </div>
+  <% end %>
+  <%= link_to "Go Back", profile_path, class: "mt-2 button-main" %>
+  </div>
+</div>
