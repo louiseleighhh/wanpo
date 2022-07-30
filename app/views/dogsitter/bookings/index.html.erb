@@ -35,6 +35,8 @@
       <h1><%= booking.dogsitter.first_name %> <%= booking.dogsitter.last_name %></h1>
       <h1><%= booking.dogsitter.location %></h1>
       <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
+      <h1><%= booking.user.pets.first.breed %> - <%= booking.user.pets.first.name %></h1>
+      <p><%= booking.user.pets.first.comments %></p>
       </div>
 
          <% if booking.pending?%>
