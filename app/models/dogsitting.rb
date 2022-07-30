@@ -1,6 +1,6 @@
 class Dogsitting < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   geocoded_by :location
   validates :location, :availability, presence: true
   validates :rate, presence: true, numericality: { only_integer: true }

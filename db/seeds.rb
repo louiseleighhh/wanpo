@@ -14,7 +14,7 @@ Pet.destroy_all
 puts 'Destroying dogsittings...'
 Dogsitting.destroy_all
 puts 'Destroying bookings...'
-Dogsitting.destroy_all
+Booking.destroy_all
 puts 'Clean database!'
 
 puts 'Creating test user...'
