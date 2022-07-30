@@ -27,6 +27,8 @@ class DogsittingsController < ApplicationController
     @dogsitting = Dogsitting.new(dogsitting_params)
     @dogsitting.user = current_user
     @dogsitting.location = current_user.location
+    @dogsitting.latitude = current_user.latitude
+    @dogsitting.longitude = current_user.longitude
     @dogsitting.day = params[:dogsitting][:day].compact_blank.join(', ')
     @dogsitting.availability = params[:dogsitting][:availability].compact_blank.join(', ')
     if @dogsitting.save
