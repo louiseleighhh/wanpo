@@ -1,6 +1,6 @@
 <div class="bookings-banner">
   <div class="container">
-  <div class="search-label"><h1>Your Bookings</h1></div>
+  <div class="search-label"><h1>Here are your bookings</h1></div>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
     <div class="bookings-status">
     <% if booking.status == "pending"%>
       <div class="button-pending"><span style="white-space: nowrap"><%= booking.status %> <i class="fa-regular fa-clock"></i></span></a></div>
-      <% elsif %>
+      <% elsif booking.status == "rejected" %>
       <div class="button-rejected"><span style="white-space: nowrap"><%= booking.status %> <i class="fa-solid fa-xmark"></i></span></a></div>
       <% else %>
       <div class="button-accepted"><span style="white-space: nowrap"><%= booking.status %> <i class="fa-solid fa-check"></i></span></a></div>

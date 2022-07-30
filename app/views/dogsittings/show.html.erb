@@ -1,13 +1,14 @@
 
+<div class="container pt-3">
 <h1><%= link_to "Back To List", dogsittings_path, class:"button-secondary" %></h1>
-<div class="container-small-profile">
+<div class="container-smaller-profile">
   <div class="container-profile">
     <div class="card-profile">
       <div class="gradient">
         <div class="price">
           <h1><%= @dogsitting.user.first_name%> <%=  @dogsitting.user.last_name %></h1>
           <h2><%= @dogsitting.location %></h2>
-          <h3>¥<%= @dogsitting.rate %>/hour</h3>
+          <h2>¥<%= @dogsitting.rate %>/hour</h2>
         </div>
       </div>
       <div class="profile-img">
@@ -18,19 +19,18 @@
         <% end %>
       </div>
       <div class="content-profile">
-        <div class="top">
-          <p>Hi. I am Michelle I am broke, but I love dogs. The problem is my aparment is small and I don’t have any money. I am willing to take any jobs because I have quit my job and I never want to come back to the company</p>
-        </div>
+      <div class="container-profile-contents">
+        <p><%= @dogsitting.user.about_me %></p>
+      </div>
         <div class="bottom">
           <h4>Availability:</h4>
           <h5><%= @dogsitting.availability %></h5>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class = "container">
-    <div class="card mt-5 p-5">
+
+    <div class="profile-form-card">
       <h1>Add a Booking</h1>
       <%= simple_form_for [@dogsitting, @booking] do |f| %>
         <div class="row">
@@ -43,6 +43,7 @@
           <%= f.submit class: 'button-main' %>
         </div>
       <% end %>
+       </div>
     </div>
   </div>
 </div>

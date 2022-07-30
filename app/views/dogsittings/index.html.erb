@@ -18,7 +18,7 @@
 
 
 <% if @dogsittings.empty? %>
-  <h1 class = "text-center pt-3">We couldn't find what you were looking for</h1>
+  <div class="no-results"><h1>There are currently no dogsitters in this location <i class="fa-regular fa-face-frown"></i></h1></div>
 <% else %>
   <div class="container-small-profile">
     <div class="cards-small-profile">
@@ -38,7 +38,8 @@
               <h1><%=dogsitting.user.first_name%> <%=dogsitting.user.last_name%></h1>
               <h2><%=dogsitting.location %></h2>
               <h2>¥<%=dogsitting.rate %>/hour</h2>
-              <h2>Available on the <%=dogsitting.availability%></h2>
+              <h2>Available on <%= dogsitting.day %></h2>
+              <h2>On <%= dogsitting.availability %></h2>
             </div>
             <div class="bottom">
               <%= link_to "Show more information", dogsitting_path(dogsitting), class: "nav-link", class: "button-main" %>
