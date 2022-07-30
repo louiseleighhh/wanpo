@@ -59,7 +59,8 @@ puts 'Creating users...'
       location: user.location,
       latitude: user.latitude,
       longitude: user.longitude,
-      availability: ["Weekdays", "Weekends", "Mornings", "Afternoons", "Evenings"].sample,
+      day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].sample
+      availability: ["Mornings", "Afternoons", "Evenings"].sample,
       rate: rand(1500..5000)
     )
     puts "Created dogsitting #{dogsitting.id}"
