@@ -1,20 +1,19 @@
-<div class = "container">
-  <div class="card mt-3 p-5">
-  <h1>Dogsitter Information</h1>
-  <%= simple_form_for [@dogsitting] do |f| %>
-    <div class="row">
-      <%= f.input :rate, html5: true %>
-    </div>
-    <div class="row">
-      <%= f.input :day, collection: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], as: :check_boxes, html5: true %>
-    </div>
-    <div class="row">
-      <%= f.input :availability, collection: ["Mornings", "Afternoons", "Evenings"], as: :check_boxes, include_blank: false, html5: true %>
-    </div>
-    <div class="row">
-      <%= f.button :submit, "Submit Information", class: 'button-main' %>
-    </div>
-  <% end %>
-  <%= link_to "Go Back", profile_path, class: "mt-2 button-main" %>
+<div class = "container-profile ">
+    <div class="card mt-3 p-5">
+        <h1>Dogsitter Information</h1>
+        <%= simple_form_for [@dogsitting] do |f| %>
+          <div class="row">
+            <%= f.input :rate, html5: true %>
+          </div>
+          <div class="row">
+            <%= f.input :availability, collection: ["Weekdays", "Weekends", "Mornings", "Afternoons", "Evenings"], html5: true %>
+          </div>
+          <div class="row">
+            <%= f.button :submit, "Submit Information", class: 'button-main' %>
+          </div>
+        <% end %>
+        <div class="row">
+        <%= link_to "Go Back", profile_path, class: "mt-2 button-main" %>
+      </div>
   </div>
 </div>
