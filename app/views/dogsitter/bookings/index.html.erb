@@ -1,8 +1,7 @@
-<div class="dogsitter-bookings-banner">
+<div class="dogsitting-requests-banner">
   <div class="container">
     <div class="search-label">
       <h1>Here are your Dogsitting Requests</h1>
-      <h1><%= current_user.id %></h1>
     </div>
   </div>
 </div>
@@ -19,40 +18,45 @@
   <h3>(Approve) ------- (Reject)</h3>
 <% end %> -->
 
-<div class="container-bookings">
+<div class="container-dogsitting-requests">
 <% @bookings.each do |booking| %>
-  <div class="card-bookings">
+  <div class="card-dogsitting-requests">
     <div class="gradient">
     </div>
-    <div class="bookings-img">
+    <div class="dogsitting-requests-img">
       <% if booking.dogsitting.user.photo.attached? %>
         <img src="<%= cl_image_path booking.dogsitting.user.photo.key %>" alt="user">
       <% else %>
         <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
       <% end %>
     </div>
-    <div class="content-bookings">
+    <div class="content-dogsitting-requests">
       <div class="top">
       <h1><%= booking.dogsitter.first_name %> <%= booking.dogsitter.last_name %></h1>
       <h1><%= booking.dogsitter.location %></h1>
       <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
       </div>
-      <div class="bottom">
+
          <% if booking.pending?%>
-          <%= simple_form_for booking do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-          <%= f.submit 'Accept', class: 'nav-link', class: 'button-main' %>
-          <% end %>
-          <%= simple_form_for booking do |f| %>
-          <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-          <%= f.submit 'Reject', class: 'nav-link', class: 'button-main'  %>
-          <% end %>
+         <div class ="accept-reject-container">
+          <div class="accept-reject-child-left">
+            <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'nav-link', class: 'button-main' %>
+            <% end %>
+          </div>
+          <div class="accept-reject-child-right">
+            <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'nav-link', class: 'button-main'  %>
+            <% end %>
+          </div>
+        </div>
         <% else %>
-          <div class="button-secondary"><%=booking.status%></div>
+          <div class="button-secondary"><%=booking.status.capitalize%></div>
         <% end %>
-      </div>
+
     </div>
   </div>
   <% end %>
   </div>
-

@@ -16,19 +16,29 @@
         <img src="https://cdn-icons-png.flaticon.com/512/709/709722.png" alt="user">
       <% end %>
     </div>
+    <div class="bookings-status">
+    <% if booking.status == "pending"%>
+      <div class="button-pending"><span style="white-space: nowrap"><%= booking.status %> <i class="fa-regular fa-clock"></i></span></a></div>
+      <% elsif %>
+      <div class="button-rejected"><span style="white-space: nowrap"><%= booking.status %> <i class="fa-solid fa-xmark"></i></span></a></div>
+      <% else %>
+      <div class="button-accepted"><span style="white-space: nowrap"><%= booking.status %> <i class="fa-solid fa-check"></i></span></a></div>
+    <% end %>
+    </div>
     <div class="content-bookings">
       <div class="top">
       <h1><%= booking.dogsitting.user.first_name %> <%= booking.dogsitting.user.last_name %></h1>
+      </div>
       <h1><%= booking.dogsitting.user.location %></h1>
       <h1><%= booking.starts_at %> - <%= booking.ends_at %></h1>
       <h2>¥<%= booking.dogsitting.rate %>/hour</h2>
-      </div>
+
       <div class="bottom">
       <% if booking.pending?%>
-        <%= link_to "Update", edit_booking_path(booking), class: "nav-link", class: "button-main" %>
-        <%= link_to "Cancel", booking_path(booking), class: "nav-link", class: "button-secondary", method: :delete %>
+        <%= link_to "Update", edit_booking_path(booking), class: "button-main" %>
+        <%= link_to "Cancel", booking_path(booking), class: "button-secondary", method: :delete %>
       <% else %>
-        <div class="button-secondary"><%=booking.status%></div>
+        <%= link_to "Clear", booking_path(booking), class: "button-secondary", method: :delete %>
       <% end %>
       </div>
     </div>
