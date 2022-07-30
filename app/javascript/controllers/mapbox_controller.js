@@ -1,5 +1,8 @@
-import { Controller } from "@hotwired/stimulus"
-import mapboxgl from "mapbox-gl"
+import { Controller } from '@hotwired/stimulus'
+import mapboxgl from 'mapbox-gl'
+
+import "mapbox-gl/dist/mapbox-gl.css"
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css"
 
 export default class extends Controller {
   static values = {
