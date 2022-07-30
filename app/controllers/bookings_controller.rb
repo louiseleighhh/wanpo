@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
-    redirect_to bookings_path
+    redirect_to dogsitter_bookings_path
   end
 
   def edit; end
