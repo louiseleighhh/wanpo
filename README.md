@@ -1,4 +1,4 @@
-# ⚖️ Juris Japan
+# 🐾 Wanpo
 
 A marketplace website to help connect people with dog walkers around Tokyo
 
